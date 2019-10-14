@@ -9,9 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatFormFieldModule,MatExpansionModule,MatStepperModule,MatDatepickerModule,MatNativeDateModule, MatProgressSpinnerModule, MatInputModule,MatMenuModule,MatCardModule, MatGridListModule,MatIconModule, MatToolbarModule, MatButtonModule} from '@angular/material';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test.component';
+
 
 
 
@@ -23,9 +24,12 @@ import { TestComponent } from './test/test.component';
     HeaderComponent,
     SignupComponent,
     TestComponent
+
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
+    
     BrowserModule,
     AppRoutingModule,
     MatCardModule,

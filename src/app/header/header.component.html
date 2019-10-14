@@ -1,22 +1,23 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span> My Angular Material App</span>
-        <span class="example-fill-remaining-space"></span>
+        <span> Employee Transport Management App</span>
         <span class="align-center"></span>
         <span class="example-spacer"></span>
-        <button mat-button>About</button>
-        <button mat-button>Contact</button>
+        <button mat-button (click)="pickRide()">Pick a ride</button>
+        <button mat-button (click)="addNewRide()">Add a new ride</button>
+        <span class="example-fill-remaining-space">{{empId}}</span>
+
         <button mat-icon-button [matMenuTriggerFor]= "menu">
             <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item>
                 <mat-icon>voicemail</mat-icon>
-                <span>Check Voicemail</span>
+                <span>Pick a ride</span>
             </button>
             <button mat-menu-item>
                 <mat-icon>notifications_off</mat-icon>
-                <span>Disable Alerts</span>
+                <span>Add a new ride</span>
             </button>
             <button mat-menu-item>
                 <mat-icon>exit_to_app</mat-icon>

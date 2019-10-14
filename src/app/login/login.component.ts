@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private dataService: DataTransferService) { }
 
   username: string;
+
   password: string;
   showSpinner: boolean = false;
   userData:any;
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
     } else {
       console.log("Invalid Credentials");
     }
+
   }
 
   signup() {
