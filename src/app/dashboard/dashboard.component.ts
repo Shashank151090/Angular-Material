@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataTransferService } from '../services/data-transfer.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,10 +15,14 @@ export class DashboardComponent implements OnInit {
     { title: 'Card 3', cols: 1, rows: 1 },  
     { title: 'Card 4', cols: 2, rows: 1 }  
   ];  
+  userData: any;
 
-  constructor() { }
+  username: string;
+  defaultImgUrl: string = '../../assets/images/defaultUser.jpeg'
+  constructor(private dataTransfer: DataTransferService) { }
 
   ngOnInit() {
+    this.userData = this.dataTransfer.userData;
   }
 
 }
