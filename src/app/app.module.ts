@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -29,7 +30,7 @@ import { TestComponent } from './test/test.component';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
