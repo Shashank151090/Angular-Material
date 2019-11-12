@@ -7,12 +7,12 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatFormFieldModule,MatExpansionModule,MatStepperModule,MatDatepickerModule,MatNativeDateModule, MatProgressSpinnerModule, MatInputModule,MatMenuModule,MatCardModule, MatGridListModule,MatIconModule, MatToolbarModule, MatButtonModule} from '@angular/material';
+import {MatFormFieldModule,MatExpansionModule,MatStepperModule,MatPaginatorModule,MatDatepickerModule,MatTableModule,MatNativeDateModule, MatProgressSpinnerModule, MatInputModule,MatMenuModule,MatCardModule, MatGridListModule,MatIconModule, MatToolbarModule, MatButtonModule} from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
-import { TestComponent } from './test/test.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     HeaderComponent,
     SignupComponent,
-    TestComponent
+    ProfileComponent
 
   ],
   imports: [
@@ -39,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatStepperModule,
     MatExpansionModule,
     MatNativeDateModule,
+    MatPaginatorModule,
     MatMenuModule,
+    MatTableModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatFormFieldModule,

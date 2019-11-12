@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataTransferService } from '../services/data-transfer.service';
 import { ApiService } from '../api.service';
+import { MatPaginator } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,26 +10,33 @@ import { ApiService } from '../api.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  // Number of cards to be generated with column and rows to be covered  
-  cards = [  
-    { title: 'Card 1', cols: 1, rows: 2 },  
-    { title: 'Card 2', cols: 1, rows: 1 },  
-    { title: 'Card 3', cols: 1, rows: 1 },  
-    { title: 'Card 4', cols: 2, rows: 1 }  
-  ];  
+ 
   userData: any;
   getData: any;
-
+  arrayToDisplay: any = [];
+  userImagePath = "../../assets/images/userImg/user-"
   username: string;
   defaultImgUrl: string = '../../assets/images/defaultUser.jpeg'
-  constructor(private dataTransfer: DataTransferService, private apiService: ApiService) { }
+  constructor(private dataTransfer: DataTransferService, private apiService: ApiService, private router: Router) { }
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
     this.userData = this.dataTransfer.userData;
     this.getData = this.apiService.getDataFromRest().subscribe((data) => {
-      console.log(data);
+      this.arrayToDisplay = data;
+      for(let i=0; i<this.arrayToDisplay.length; i++) {
+        this.arrayToDisplay[i].imageUrl = this.userImagePath + this.arrayToDisplay[i].id + '.jpg';
+      }
+      console.log(this.arrayToDisplay)
+      this.arrayToDisplay.paginator = this.paginator;
     })
   }
+  
+  getUserDetails(data) {
+    this.dataTransfer.addUserProfileData(data);
+    this.router.navigate(["profile"]);
+  }
+
 
 }

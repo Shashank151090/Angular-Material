@@ -1,33 +1,47 @@
-<div class="grid-container">
-    <div class="row">
-        <div class="col-md-9"><h1>Dashboard</h1></div>
-        <div class="col-md-3">
-            <i class="material-icons set-icon-size">
-                account_circle
-            </i>
-            <h3>{{userData.userName}}</h3>
-        </div>
-    </div>
-    <mat-grid-list cols="2" rowHeight="300px">
-        <mat-grid-tile *ngFor="let card of cards" style="border: 1px solid" [colspan]="card.cols" [rowspan]="card.rows">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        {{card.title}}
-                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">  
-                            <mat-icon>more_vert</mat-icon>  
-                        </button>  
-                        <mat-menu #menu="matMenu" xPosition="before">  
-                            <button mat-menu-item>Expand</button>  
-                            <button mat-menu-item>Remove</button>  
-                        </mat-menu>  
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">  
-                    <div>Card Content Here</div>  
-                </mat-card-content> 
-            </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3 col-sm-6" *ngFor="let data of arrayToDisplay">
+
+            <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="{{data.imageUrl}}">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a (click)="getUserDetails(data)">{{data.name}}</a>
+                    </div>
+                    <div class="desc">{{data.company.name}}</div>
+                    <div class="desc">{{data.email}}</div>
+                    <div class="desc">{{data.phone}}</div>
+                </div>
+                <div class="bottom">
+                    <a class="btn btn-primary btn-twitter btn-sm" href="">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-danger btn-sm" rel="publisher"
+                       href="">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a class="btn btn-primary btn-sm" rel="publisher"
+                       href="">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a class="btn btn-warning btn-sm" rel="publisher" href="">
+                        <i class="fa fa-behance"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+	</div>
 </div>
